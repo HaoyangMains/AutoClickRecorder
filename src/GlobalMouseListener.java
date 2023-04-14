@@ -35,7 +35,7 @@ public class GlobalMouseListener extends JFrame implements NativeMouseInputListe
         LocalDate date = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");  
         String name=date.format(formatter);
-        path+=(dir+name);
+        path+=(dir+name+"\\");
         File file =new File(path);    
         //create if not exist    
         if  (!file .exists()  && !file .isDirectory())      
@@ -119,8 +119,8 @@ public class GlobalMouseListener extends JFrame implements NativeMouseInputListe
 
     private void screentshot() {
 
-
-        //get current localTime
+        if(flag==0){
+                   //get current localTime
         LocalTime time = LocalTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH-mm-ss"); 
         String name=time.format(formatter);
@@ -141,7 +141,8 @@ public class GlobalMouseListener extends JFrame implements NativeMouseInputListe
             // TODO: handle exception
            }
 	      }
-	    }, 1000);
+	    }, 1000); 
+        }
     }
    
     public static void main(String[] args) {
